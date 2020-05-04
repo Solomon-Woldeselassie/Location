@@ -9,6 +9,7 @@ import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Component;
+
 @Component 
 public class ReportUtilImpl implements ReportUtil {
 

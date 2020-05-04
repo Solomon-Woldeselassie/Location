@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.solomon.location.entities.Location;
 import com.solomon.location.entities.services.LocationServices;
-import com.solomon.location.repo.Repository;
+import com.solomon.location.repo.LocationRepository;
 import com.solomon.location.reportutil.ReportUtil;
 import com.solomon.location.util.EmailUtil;
 
@@ -30,7 +30,7 @@ public class LocationController {
 	ReportUtil reportUtil;
 	
 	@Autowired
-	Repository repo;
+	LocationRepository repo;
 	
 	@Autowired
 	ServletContext sc;

@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class LocationwebApplicationTests {
 	@Autowired 
-	private Repository repository;
+	private LocationRepository locationRepository;
 
 	@Test
 	public void addLocation() {
@@ -17,6 +17,6 @@ class LocationwebApplicationTests {
 		loc.setCode("52246");
 		loc.setType("College Town");
 		
-		repository.save(loc);	
+		locationRepository.save(loc);	
 	}
 }
