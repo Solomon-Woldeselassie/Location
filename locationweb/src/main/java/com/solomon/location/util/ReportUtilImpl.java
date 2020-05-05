@@ -1,4 +1,4 @@
-package com.solomon.location.reportutil;
+package com.solomon.location.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,13 +10,14 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.stereotype.Component;
 
+
 @Component 
 public class ReportUtilImpl implements ReportUtil {
 
 	@Override
-	public void generatePieChart(String path, List<Object[]> data) {
+	public void generatePieChart(String path, List<Object[]> datas) {
 		DefaultPieDataset dataset = new DefaultPieDataset();
-		for (Object[] objects: data) {
+		for (Object[] objects: datas) {
 			dataset.setValue(objects[0].toString(),new Double(objects[1].toString()));//Assigning the type and type value casting to double
 		}
 		JFreeChart chart = ChartFactory.createPieChart3D("Location Pie Chart", dataset, true, true, false);

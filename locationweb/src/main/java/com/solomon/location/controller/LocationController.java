@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.solomon.location.entities.Location;
 import com.solomon.location.entities.services.LocationServices;
 import com.solomon.location.repo.LocationRepository;
-import com.solomon.location.reportutil.ReportUtil;
 import com.solomon.location.util.EmailUtil;
+import com.solomon.location.util.ReportUtil;
 
 @Controller
 public class LocationController {
@@ -24,13 +24,14 @@ public class LocationController {
 	LocationServices service;
 	
 	@Autowired
+	LocationRepository repo;
+	
+	@Autowired
 	EmailUtil emailUtil;
 	
 	@Autowired
 	ReportUtil reportUtil;
 	
-	@Autowired
-	LocationRepository repo;
 	
 	@Autowired
 	ServletContext sc;
@@ -89,7 +90,6 @@ public class LocationController {
 	@RequestMapping("/generatePieChart")
 	public String displaylocation() {
         String path = sc.getRealPath("/");
-        
 		List<Object[]> data = repo.findTypeandTypeCount();
 		reportUtil.generatePieChart(path, data);
 		return "report";
